@@ -1,18 +1,14 @@
 #Ejercicio de cajero automatico
 
-valor = int
-bill_20k = 20000
-bill_10k = 10000
-bill_5k = 5000
-bill_2k = 2000
-bill_1k = 1000
-resto = 0
-
 print("\nEste programa de cajero automático, le muestra cuantos billetes le va a dar de cada valor para la cantidad ingresada.\n\nEste programa solo da valores de billetes, no admite monedas, ni valores decimales.")
+
+billetes_entregar = {}
+denominaciones = [20000, 10000, 5000, 2000, 1000]
 
 try:
 
     valor = int(input("\nIngrese la cantidad que desea retirar: "))
+    resto = valor
 
     if valor < 1000:
 
@@ -20,36 +16,27 @@ try:
         
     else:
 
-        cantidad_20k = (valor // bill_20k) 
+        for denominacion in denominaciones:
+            
+            cantidad_billetes = resto // denominacion
 
-        resto = (valor % bill_20k) 
+            billetes_entregar[denominacion] = cantidad_billetes
 
-        cantidad_10k = (resto // bill_10k) 
-
-        resto = (resto % bill_10k) 
-
-        cantidad_5k = (resto // bill_5k) 
-
-        resto = (resto % bill_5k) 
-
-        cantidad_2k = (resto // bill_2k) 
-
-        resto = (resto % bill_2k) 
-
-        cantidad_1k = (resto // bill_1k) 
-
-        resto = (resto % bill_1k) 
+            resto = resto % denominacion
 
         if resto == 0:
 
-            print("\nLos billetes que se le van a entregar van a ser:")
-            print(f"\n$20.000: {cantidad_20k} $10.000: {cantidad_10k} $5.000: {cantidad_5k} $2.000: {cantidad_2k} $1.000: {cantidad_1k}")
+            print("\nLos billetes que se le van a entregar son:\n")
+
+            for denominacion, cantidad in billetes_entregar.items():
+
+                print(f"Billetes de ${denominacion:}: {cantidad}")
+
+            print("\n")
 
         else:
-
+        
             print(f"\nEl valor ${valor} no se puede entregar, sobran ${resto} y este cajero no da monedas.\n\nReinicie el programa he intente nuevamente.\n")
 
 except Exception:
     print("\nEste valor no está permitido, reinicie el programa he intente nuevamente\n")
-
-    
