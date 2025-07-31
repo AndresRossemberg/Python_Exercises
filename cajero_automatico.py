@@ -8,7 +8,7 @@ bill_2k = 2000
 bill_1k = 1000
 resto = 0
 
-print("\nEste programa de cajero automatico, le muestra cuantos billetes le va a dar de cada valor para la cantidad ingresada.\n\nEste programa solo da valores de billetes, no admite monedas, nivalores decimales.")
+print("\nEste programa de cajero automático, le muestra cuantos billetes le va a dar de cada valor para la cantidad ingresada.\n\nEste programa solo da valores de billetes, no admite monedas, ni valores decimales.")
 
 try:
 
@@ -16,7 +16,7 @@ try:
 
     if valor < 1000:
 
-        print(f"\nEl valor ${valor}, no esta permitido, tiene que ser mayor o igual a $1.000.\n\nReinicie el programa he intente nuevamente\n")
+        print(f"\nEl valor ${valor}, no está permitido, tiene que ser mayor o igual a $1.000.\n\nReinicie el programa he intente nuevamente\n")
         
     else:
 
@@ -50,4 +50,6 @@ try:
             print(f"\nEl valor ${valor} no se puede entregar, sobran ${resto} y este cajero no da monedas.\n\nReinicie el programa he intente nuevamente.\n")
 
 except Exception:
-    print("\nEste valor no esta permitido, reinicie el programa he intente nuevamente\n")
+    print("\nEste valor no está permitido, reinicie el programa he intente nuevamente\n")
+
+    
